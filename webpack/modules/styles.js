@@ -1,5 +1,6 @@
 // Core
 import env from 'postcss-preset-env'
+import nested from 'postcss-nested'
 import cssnano from 'cssnano'
 
 const loadPostCss = (
@@ -9,9 +10,8 @@ const loadPostCss = (
   }
 ) => {
   const plugins = [
-    env({
-      stage: 0
-    })
+    env({ stage: 1 }),
+    nested()
   ]
 
   if (minimize) {

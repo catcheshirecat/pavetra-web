@@ -1,0 +1,12 @@
+:root {
+    --excellent: #57C3BE;
+    --good: #A7C38B;
+    --moderate: #E0C34F;
+    --sensitive-unhealthy: #E0AD4F;
+    --unhealthy: #E1984E;
+    --very-unhealthy: #D97A55;
+    --hazardous: #D35B57;
+
+    --border: #CED7E5;
+    --text: #3F384A;
+}

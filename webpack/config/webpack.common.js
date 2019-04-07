@@ -22,6 +22,7 @@ export default () => {
     },
     modules.setupHtml(),
     modules.loadJavaScript(),
+    modules.loadSvg(),
     modules.defineEnvVariables({
       __ENV__: JSON.stringify(NODE_ENV),
       __DEV__: NODE_ENV === 'development',

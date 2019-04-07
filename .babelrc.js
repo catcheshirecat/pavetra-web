@@ -5,7 +5,8 @@ module.exports = api => {
 
   const plugins = [
     '@babel/proposal-class-properties',
-    '@babel/syntax-dynamic-import'
+    '@babel/syntax-dynamic-import',
+    'react-css-modules'
   ]
 
   if (env === 'development') {
