@@ -1,5 +1,6 @@
 // Core
 import env from 'postcss-preset-env'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import nested from 'postcss-nested'
 import cssnano from 'cssnano'
 
@@ -50,4 +51,25 @@ export const loadDevCss = () => ({
       }
     ]
   }
+})
+
+export const loadProdCss = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          loadCss({ sourceMap: false }),
+          loadPostCss({ sourceMap: false, minify: true })
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:5].[id].css',
+      chunkFilename: 'css/[name].[contenthash:5].[id].css'
+    })
+  ]
 })
