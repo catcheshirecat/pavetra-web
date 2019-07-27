@@ -2,18 +2,15 @@ import React, { Component, Fragment } from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import Dashboard from './components/Dashboard'
+import Map from './components/Map'
 
-class App extends Component {
-  render () {
-    return (
-      <Fragment>
-        <header>
-        </header>
-        <div />
-        <Dashboard />
-      </Fragment>
-    )
-  }
-}
+const App = () => (
+  <Fragment>
+    <header>
+    </header>
+    <Map />
+    <Dashboard />
+  </Fragment>
+)
 
 export default hot(App)

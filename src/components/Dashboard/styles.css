@@ -1,5 +1,7 @@
 .dashboard {
     position: fixed;
+    z-index: 2;
+    background-color: var(--white);
     bottom: 0;
     width: 100%;
     padding: 24px;

@@ -17,11 +17,12 @@ export default () => {
         chunkFilename: DEV
           ? 'js/[name].js'
           : 'js/[name].[contenthash:5].js',
-        publicPath: '/',
+        publicPath: '/'
       },
     },
     modules.setupHtml(),
     modules.loadJavaScript(),
+    modules.loadImages(),
     modules.loadSvg(),
     modules.defineEnvVariables({
       __ENV__: JSON.stringify(NODE_ENV),

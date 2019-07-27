@@ -11,6 +11,24 @@ export const setupHtml = () => ({
   ],
 })
 
+export const loadImages = () => ({ // TODO do we need this?
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[ext]'
+            }
+          }
+        ]
+      }
+    ]
+  }
+})
+
 export const loadSvg = () => ({
   module: {
     rules: [

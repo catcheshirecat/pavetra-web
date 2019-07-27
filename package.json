@@ -17,6 +17,9 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "leaflet": "1.5.1",
+    "mapbox-gl": "1.0.0",
+    "mapbox-gl-leaflet": "0.0.6",
     "react": "^16.8.6",
     "react-dom": "npm:@hot-loader/react-dom"
   },
