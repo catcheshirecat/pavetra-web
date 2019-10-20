@@ -1,11 +1,19 @@
 :root {
     --excellent: #57C3BE;
+    --excellent-darker: #03898C;
+    --excellent-darkest: #026466;
     --good: #A7C38B;
+    --good-darker: #6F8C52;
+    --good-darkest: #51663C;
     --moderate: #E0C34F;
-    --sensitive-unhealthy: #E0AD4F;
+    --moderate-darker: #BF9C15;
+    --moderate-darkest: #997D11;
     --unhealthy: #E1984E;
-    --very-unhealthy: #D97A55;
-    --hazardous: #D35B57;
+    --unhealthy-darker: #BF6F1B;
+    --unhealthy-darkest: #995916;
+    --very-unhealthy: #D35B57;
+    --very-unhealthy-darker: #993A37;
+    --very-unhealthy-darkest: #732B29;
 
     --border: #CED7E5;
     --text: #3F384A;

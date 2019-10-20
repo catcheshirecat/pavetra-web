@@ -20,6 +20,7 @@
     "apisauce": "1.0.3",
     "classnames": "^2.2.6",
     "leaflet": "1.5.1",
+    "lodash": "^4.17.15",
     "mapbox-gl": "1.0.0",
     "mapbox-gl-leaflet": "0.0.6",
     "react": "^16.8.6",

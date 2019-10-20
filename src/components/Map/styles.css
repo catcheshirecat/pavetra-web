@@ -23,6 +23,7 @@
         border: 1px solid var(--border);
         background-color: var(--white);
         transition: background-color 0.2s ease-in-out;
+        --svg-inactive: #878898;
 
         &:first-child {
             border-right: none;
@@ -36,8 +37,32 @@
             border-bottom-right-radius: 16px;
         }
 
-        &.inactive-factories {
+        svg path {
+            transition: fill 0.2s ease-in-out;
+        }
+
+        &.stations-inactive {
             background-color: var(--border);
+
+            svg {
+                path {
+                    fill: var(--svg-inactive);
+                }
+            }
+        }
+
+        &.factories-inactive {
+            background-color: var(--border);
+
+            svg {
+                [class*="base"], [class*="red"] {
+                    fill: var(--svg-inactive);
+                }
+
+                [class*="white"] {
+                    fill: #ABB0BF;
+                }
+            }
         }
     }
 }

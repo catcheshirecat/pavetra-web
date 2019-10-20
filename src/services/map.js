@@ -1,6 +1,8 @@
 import Leaflet from 'leaflet'
+import find from 'lodash/find'
+import inRange from 'lodash/inRange'
 
-import { MAP_INITIAL_ZOOM } from '../config/constants'
+import { MAP_INITIAL_ZOOM, STATION_METRICS } from '../config/constants'
 import { MAP_ACCESS_TOKEN } from '../config/keys'
 
 const MAPBOX_STYLE = 'mapbox://styles/colorage/cjrujl9lp0k4o1fo6u1u8xiwc'
@@ -26,19 +28,32 @@ export const addLayer = (layer) => {
 }
 
 export const createFactoriesLayer = (items) => {
-  if (map) {
-    const icon = Leaflet.icon({
-      iconUrl: '/src/assets/images/factory.svg',
-      iconSize: [28, 24]
-    })
+  const icon = Leaflet.icon({
+    iconUrl: '/src/assets/images/factory.svg',
+    iconSize: [28, 24]
+  })
 
-    const markers = items.map(item => {
-      const popup = Leaflet
-        .popup({ closeButton: false, className: 'factory-popup' })
-        .setContent(item.name)
-      return Leaflet.marker([item.lat, item.long], { icon }).bindPopup(popup)
-    })
+  const markers = items.map(item => {
+    const popup = Leaflet
+      .popup({ closeButton: false, className: 'factory-popup' })
+      .setContent(item.name)
+    return Leaflet.marker([item.lat, item.long], { icon }).bindPopup(popup)
+  })
 
-    return Leaflet.layerGroup(markers)
-  }
+  return Leaflet.layerGroup(markers)
+}
+
+export const createStationsLayer = (items) => {
+  const getIcon = ({ sensor_2_5: value }) => (
+    Leaflet.icon({
+      iconUrl: `/src/assets/images/station-${value}.svg`,
+      iconSize: [34, 30]
+    })
+  )
+
+  const markers = items.map(item => {
+    return Leaflet.marker(item.location, { icon: getIcon(item) })
+  })
+
+  return Leaflet.layerGroup(markers)
 }

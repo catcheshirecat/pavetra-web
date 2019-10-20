@@ -4,11 +4,11 @@
       <rect width="30.181" height="26.001" fill="none"/>
     </clipPath>
   </defs>
-  <g id="ic_factory" clip-path="url(#clip-path)">
-    <path id="base" d="M-4106,16V8h8v8Zm-8,0V8h8v8Zm-8,0V8h8v8Zm16-8,8-4V8Zm-8,0,8-4V8Zm-8,0,8-4V8Z" transform="translate(4123.001 9)" fill="#ced7e5"/>
-    <g id="tube" transform="translate(-1070.999 -639)">
-      <path id="white" d="M5210,664h16l-4-24h-8Z" transform="translate(-4126)" fill="#fff"/>
-      <path id="red" d="M-4122,24l.667-4h14.667l.667,4Zm1.333-8,.667-4h12l.667,4Zm1.333-8,.667-4h9.333l.667,4Z" transform="translate(5206 640)" fill="#d35b57"/>
+  <g clip-path="url(#clip-path)">
+    <path class="base" d="M-4106,16V8h8v8Zm-8,0V8h8v8Zm-8,0V8h8v8Zm16-8,8-4V8Zm-8,0,8-4V8Zm-8,0,8-4V8Z" transform="translate(4123.001 9)" fill="#ced7e5"/>
+    <g transform="translate(-1070.999 -639)">
+      <path class="white" d="M5210,664h16l-4-24h-8Z" transform="translate(-4126)" fill="#fff"/>
+      <path class="red" d="M-4122,24l.667-4h14.667l.667,4Zm1.333-8,.667-4h12l.667,4Zm1.333-8,.667-4h9.333l.667,4Z" transform="translate(5206 640)" fill="#d35b57"/>
     </g>
     <g id="stroke" transform="translate(3819 -191)" fill="none" stroke-linejoin="round">
       <path d="M-3806,216h-12v-8l8-4v4l5.817-2.908.849-5.091h0l.667-4h0l.667-4h8l.667,4h0l.667,4h0l2.667,16Z" stroke="none"/>
