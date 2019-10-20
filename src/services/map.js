@@ -6,7 +6,6 @@ import { MAP_ACCESS_TOKEN } from '../config/keys'
 const MAPBOX_STYLE = 'mapbox://styles/colorage/cjrujl9lp0k4o1fo6u1u8xiwc'
 
 let map = null
-let layers = {}
 
 export const initMap = id => {
   map = Leaflet.map(id, {
@@ -22,7 +21,11 @@ export const initMap = id => {
   return map
 }
 
-export const addFactories = (items) => {
+export const addLayer = (layer) => {
+  layer.addTo(map)
+}
+
+export const createFactoriesLayer = (items) => {
   if (map) {
     const icon = Leaflet.icon({
       iconUrl: '/src/assets/images/factory.svg',
@@ -30,9 +33,12 @@ export const addFactories = (items) => {
     })
 
     const markers = items.map(item => {
-      const popup = Leaflet.popup({ closeButton: false, className: 'factory-popup' })
-      return Leaflet.marker([item.lat, item.long], { icon }).bindPopup(popup.setContent(item.name))
+      const popup = Leaflet
+        .popup({ closeButton: false, className: 'factory-popup' })
+        .setContent(item.name)
+      return Leaflet.marker([item.lat, item.long], { icon }).bindPopup(popup)
     })
-    layers.factories = Leaflet.layerGroup(markers).addTo(map)
+
+    return Leaflet.layerGroup(markers)
   }
 }
