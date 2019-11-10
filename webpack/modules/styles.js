@@ -42,9 +42,10 @@ const loadThemeCss = ({ sourceMap = false, minimize = false } = { sourceMap: fal
 const loadModulesCss = ({ sourceMap = false } = { sourceMap: false }) => ({
   loader: 'css-loader',
   options: {
-    modules: true,
+    modules: {
+      localIdentName: '[path][name]__[local]--[hash:base64:5]'
+    },
     importLoaders: 1,
-    localIdentName: '[path][name]__[local]--[hash:base64:5]',
     sourceMap
   }
 })
