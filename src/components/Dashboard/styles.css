@@ -1,13 +1,20 @@
 .dashboard {
     position: fixed;
     z-index: 2;
-    background-color: var(--white);
     bottom: 0;
     width: 100%;
-    padding: 24px;
-    border-top: 1px solid var(--border);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+
+    footer {
+        background-color: var(--color-white);
+        width: 100%;
+        padding: 24px;
+        border-top: 1px solid var(--color-gray);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .weather {
@@ -30,18 +37,191 @@
     }
 }
 
+.timeline {
+    display: flex;
+    align-items: center;
+
+    .measure {
+        height: 16px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            background-color: var(--color-excellent);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 4px;
+            background-color: var(--color-gray);
+            margin: 0 8px;
+        }
+
+        span {
+            position: absolute;
+            top: 16px;
+            font: var(--text-small);
+            color: var(--color-text-lighter);
+            width: 16px;
+            white-space: nowrap;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .average-measure {
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-excellent);
+        color: var(--color-white);
+    }
+}
+
+.level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .level-current {
+        width: 160px;
+        height: 32px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-excellent);
+        color: var(--color-white);
+        cursor: default;
+
+        &:hover {
+            & + .level-desc {
+                display: flex;
+            }
+        }
+    }
+
+    .level-desc {
+        position: absolute;
+        bottom: 96px;
+        max-width: 220px;
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray);
+        padding: 25px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+
+        h5 {
+            align-self: center;
+            margin-bottom: 20px;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            color: var(--color-text-lighter);
+
+            &:before {
+                content: '';
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                margin-right: 16px;
+            }
+
+            &.level-excellent:before {
+                background-color: var(--color-excellent);
+            }
+
+            &.level-good:before {
+                background-color: var(--color-good);
+            }
+
+            &.level-normal:before {
+                background-color: var(--color-normal);
+            }
+
+            &.level-bad:before {
+                background-color: var(--color-bad);
+            }
+
+            &.level-awful:before {
+                background-color: var(--color-awful);
+            }
+
+            & + div {
+                margin-top: 8px;
+            }
+
+            &:last-child {
+                margin-top: 10px;
+                color: var(--color-text-lightest);
+
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
 .info {
     width: 32px;
     height: 32px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--color-gray);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.15s ease-in;
     cursor: pointer;
+    background-color: var(--color-white);
+
+    &.info-active {
+        background-color: var(--color-gray);
+    }
 
     &:hover {
-        background-color: var(--border);
+        background-color: var(--color-gray);
+    }
+}
+
+.about {
+    background-color: var(--color-white);
+    align-self: flex-end;
+    margin: 0 15px 15px 0;
+    border: 1px solid var(--color-gray);
+    padding: 30px;
+    max-width: 500px;
+    text-align: left;
+
+    h5 {
+        span {
+            color: var(--color-excellent-dark);
+        }
+    }
+
+    p {
+        & + h5 {
+            margin-top: 20px;
+        }
+
+        a {
+            color: var(--color-excellent-dark);
+            text-decoration: none;
+            white-space: nowrap;
+        }
     }
 }

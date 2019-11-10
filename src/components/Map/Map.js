@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import classnames from 'classnames'
 
 import { ReactComponent as Factory } from '../../assets/images/factory.svg'
 import { ReactComponent as Station } from '../../assets/images/station.svg'
 
 import Endpoints from '../../config/endpoints'
-import { initMap, createFactoriesLayer, createStationsLayer, addLayer } from '../../services/map'
+import {
+  initMap,
+  getCenter,
+  getKmRadius,
+  createFactoriesLayer,
+  createStationsLayer,
+  addLayer
+} from '../../services/map'
 import { getApi } from '../../services/api'
 
 import styles from './styles.css'
 
 const ID = 'map'
-
-const FACTORIES = 'factories'
-const STATIONS = 'stations'
-
 
 const Map = () => {
   const [factoriesLayer, setFactoriesLayer] = useState(null)
@@ -26,6 +28,13 @@ const Map = () => {
   useEffect(() => {
     initMap(ID)
 
+    getMeterages()
+
+    getFactories()
+    getStations()
+  }, [])
+
+  function getFactories() {
     // TODO refactor this
     getApi(Endpoints.factories())
       .then(result => {
@@ -37,7 +46,9 @@ const Map = () => {
       .catch(err => {
         console.error(err)
       })
+  }
 
+  function getStations() {
     getApi(Endpoints.stations())
       .then(result => {
         const layer = createStationsLayer(result)
@@ -48,13 +59,26 @@ const Map = () => {
       .catch(err => {
         console.error(err)
       })
-  }, [])
-
-  const initLayer = () => {
-
   }
 
-  const toggleFactories = () => {
+  function getMeterages() {
+    const params = {
+      location: getCenter(),
+      radius: getKmRadius(),
+      year: 2019,
+      month: 11,
+      day: 5
+    }
+    getApi(Endpoints.meterages(), params)
+      .then(result => {
+        console.log('METERAGES', result)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+
+  function toggleFactories() {
     if (factoriesLayer) {
       if (areFactoriesVisible) {
         factoriesLayer.remove()
@@ -66,7 +90,7 @@ const Map = () => {
     }
   }
 
-  const toggleStations = () => {
+  function toggleStations() {
     if (stationsLayer) {
       if (areStationsVisible) {
         stationsLayer.remove()
@@ -77,13 +101,6 @@ const Map = () => {
       }
     }
   }
-
-  const factoriesClass = classnames({
-    [styles['factories-inactive']]: !areFactoriesVisible
-  })
-  const stationsClass = classnames({
-    [styles['stations-inactive']]: !areStationsVisible
-  })
 
   return (
     <div>
@@ -97,11 +114,11 @@ const Map = () => {
       />
       <div className={styles['layers-switcher']}>
         <button
-          className={stationsClass}
+          {...areStationsVisible ? {} : { className: styles['stations-inactive'] }}
           onClick={toggleStations}
         ><Station /></button>
         <button
-          className={factoriesClass}
+          {...areFactoriesVisible ? {} : { className: styles['factories-inactive'] }}
           onClick={toggleFactories}
         ><Factory /></button>
       </div>
