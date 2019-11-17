@@ -1,5 +1,7 @@
+import capitalize from 'lodash/capitalize'
 import moment from 'moment'
 
+moment.locale('be')
 const months = generateMonths()
 
 function generateMonths() {
@@ -40,7 +42,7 @@ function generateMonths() {
     }
 
     return {
-      name: m.format('MMMM'),
+      name: capitalize(m.format('MMMM')),
       days
     }
   })
