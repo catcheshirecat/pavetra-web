@@ -1,0 +1,48 @@
+.report {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--color-white);
+    z-index: 1;
+    padding: 40px 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 108px);
+    grid-gap: 20px 30px;
+    align-content: flex-start;
+    height: 100%;
+    border-right: 1px solid var(--color-gray);
+
+    h3 {
+        margin-bottom: 10px;
+        grid-column: 1 / -1;
+    }
+}
+
+.month {
+    display: grid;
+    grid-template-columns: repeat(7, 12px);
+    grid-auto-rows: 12px;
+    grid-gap: 4px;
+    align-items: center;
+    justify-items: center;
+
+    .name {
+        grid-column: 1 / -1;
+        align-self: center;
+        color: var(--color-gray);
+        font: var(--text-10);
+        margin-bottom: 7px;
+    }
+
+    .day {
+        width: 12px;
+        height: 12px;
+        background-color: var(--color-gray);
+    }
+
+    .future {
+        width: 4px;
+        height: 4px;
+        background-color: var(--color-gray);
+    }
+}

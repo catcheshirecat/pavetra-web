@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader/root'
 
 import Dashboard from './components/Dashboard'
 import Map from './components/Map'
+import Report from './components/Report'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <header>
       </header>
       <Map />
+      <Report />
       <Dashboard />
     </>
   )

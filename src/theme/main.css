@@ -26,9 +26,26 @@ button {
     cursor: pointer;
 }
 
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+    color: var(--color-text-darker);
+    font: var(--title-18);
+}
+
+h4 {
+
+}
+
 h5 {
     color: var(--color-text-darker);
-    font-size: 14px;
+    font: var(--title-14);
 }
 
 #app {

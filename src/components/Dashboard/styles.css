@@ -87,7 +87,6 @@
         background-color: var(--color-excellent);
 
         h5 {
-            font: var(--text-title);
             color: var(--color-white);
         }
     }

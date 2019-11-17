@@ -13,7 +13,10 @@
     --color-text-darker: #3F384A;
     --color-white: #FFFFFF;
 
+    --text-10: 400 10px/16px 'PT Sans Regular';
     --text-regular: 400 14px/16px 'PT Sans Regular';
     --text-small: 400 12px/20px 'PT Sans Regular';
-    --text-title: 500 14px/20px 'PT Sans Bold';
+
+    --title-14: 500 14px/20px 'PT Sans Bold';
+    --title-18: 500 18px/16px 'PT Sans Bold';
 }
