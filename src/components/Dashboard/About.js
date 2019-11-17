@@ -4,7 +4,7 @@ import styles from './styles.css'
 
 function About() {
   return (
-    <div className={styles.about}>
+    <>
       <h5>
         Что такое <span>pavetra</span>?
       </h5>
@@ -29,7 +29,7 @@ function About() {
 
       <h5>Новости</h5>
       <p>За новостями проекта pavetra можно следить в нашем <a href="https://t.me/pavetra_online">Telegram канале</a>.</p>
-    </div>
+    </>
   )
 }
 

@@ -85,7 +85,11 @@
         align-items: center;
         justify-content: center;
         background-color: var(--color-excellent);
-        color: var(--color-white);
+
+        h5 {
+            font: var(--text-title);
+            color: var(--color-white);
+        }
     }
 }
 
@@ -104,12 +108,6 @@
         background-color: var(--color-excellent);
         color: var(--color-white);
         cursor: default;
-
-        &:hover {
-            & + .level-desc {
-                display: flex;
-            }
-        }
     }
 
     .level-desc {
@@ -119,7 +117,7 @@
         background-color: var(--color-white);
         border: 1px solid var(--color-gray);
         padding: 25px;
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
 
@@ -180,21 +178,34 @@
 .info {
     width: 32px;
     height: 32px;
-    border: 1px solid var(--color-gray);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.15s ease-in;
     cursor: pointer;
-    background-color: var(--color-white);
 
-    &.info-active {
+    span {
+        border: 1px solid var(--color-gray);
+        border-radius: 50%;
+        background-color: var(--color-white);
+        transition: background-color 0.15s ease-in;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+    }
+
+    &.info-active span {
         background-color: var(--color-gray);
     }
 
-    &:hover {
+    &:hover span {
         background-color: var(--color-gray);
+    }
+
+    &:active span {
+        width: 30px;
+        height: 30px;
     }
 }
 

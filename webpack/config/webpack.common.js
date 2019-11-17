@@ -22,6 +22,7 @@ export default () => {
     },
     modules.setupHtml(),
     modules.loadJavaScript(),
+    modules.loadFonts(),
     modules.loadImages(),
     modules.loadSvg(),
     modules.defineEnvVariables({

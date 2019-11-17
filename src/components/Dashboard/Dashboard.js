@@ -5,6 +5,7 @@ import About from './About'
 import Level from './Level'
 import Timeline from './Timeline'
 import Weather from './Weather'
+import { FadeAnimation } from '../ui/Animation'
 import { ReactComponent as Info } from '../../assets/images/info.svg'
 
 import styles from './styles.css'
@@ -22,13 +23,15 @@ function Dashboard() {
 
   return (
     <div className={styles.dashboard}>
-      {visibleAbout && <About />}
+      <FadeAnimation className={styles.about} hidden={!visibleAbout}>
+        <About />
+      </FadeAnimation>
       <footer>
         <Weather />
         <Timeline />
         <Level />
         <button className={infoClass} onClick={toggleAbout}>
-          <Info />
+          <span><Info /></span>
         </button>
       </footer>
     </div>

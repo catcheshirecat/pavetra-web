@@ -42,7 +42,7 @@ export const loadSvg = () => ({
           {
             loader: 'file-loader',
             options: {
-              name: './images/[name].[ext]'
+              name: 'images/[name].[ext]'
             }
           }
         ]
@@ -56,7 +56,25 @@ export const loadSvg = () => ({
           {
             loader: 'file-loader',
             options: {
-              name: './images/[name].[ext]'
+              name: 'images/[name].[ext]'
+            }
+          }
+        ]
+      }
+    ]
+  }
+})
+
+export const loadFonts = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.ttf$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[hash:5].[ext]',
             }
           }
         ]
