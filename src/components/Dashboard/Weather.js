@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo, useEffect, useState } from 'react'
 
 import Humidity from '../Icon/Humidity'
 import Temperature from '../Icon/Temperature'
@@ -6,19 +6,20 @@ import Wind from '../Icon/Wind'
 
 import styles from './styles.css'
 
-const Weather = () => {
+function Weather(props) {
+  const { data } = props
+
   return (
     <div className={styles.weather}>
-      <span>14:38</span>
-      <span title="Температура">
+      <span title="Тэмпература">
         <Temperature />
         +7
       </span>
-      <span title="Влажность">
+      <span title="Вільготнасць">
         <Humidity />
         20%
       </span>
-      <span title="Ветер">
+      <span title="Вецер">
         <Wind />
         16 🡵
       </span>
@@ -27,4 +28,4 @@ const Weather = () => {
   )
 }
 
-export default Weather
+export default memo(Weather)

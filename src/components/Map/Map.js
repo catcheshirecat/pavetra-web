@@ -6,8 +6,6 @@ import { ReactComponent as Station } from '../../assets/images/station.svg'
 import Endpoints from '../../config/endpoints'
 import {
   initMap,
-  getCenter,
-  getKmRadius,
   createFactoriesLayer,
   createStationsLayer,
   addLayer
@@ -27,8 +25,6 @@ const Map = () => {
 
   useEffect(() => {
     initMap(ID)
-
-    getMeterages()
 
     getFactories()
     getStations()
@@ -55,23 +51,6 @@ const Map = () => {
         addLayer(layer)
 
         setStationsLayer(layer)
-      })
-      .catch(err => {
-        console.error(err)
-      })
-  }
-
-  function getMeterages() {
-    const params = {
-      location: getCenter(),
-      radius: getKmRadius(),
-      year: 2019,
-      month: 11,
-      day: 5
-    }
-    getApi(Endpoints.meterages(), params)
-      .then(result => {
-        console.log('METERAGES', result)
       })
       .catch(err => {
         console.error(err)
